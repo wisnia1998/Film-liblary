@@ -13,20 +13,48 @@ Menu::~Menu()
 
 void Menu::choose()
 {
-	/*string title;
-	string autor;
-	string data;
-	string length;
-	string mark;
-	std::cin >> title;
-	std::cin >> autor;
-	std::cin >> data;
-	std::cin >> length;
-	std::cin >> mark;*/
-	AddFilm film;// title, autor, data, length, mark);
-	film.addFilm();
+	AddFilm film;
+	RemFilm remFilm;
 	Show show;
-	show.show();
-	RemFilm remfilm;
-	remfilm.remFilm();
+
+	int wyb;
+	std::cout << "co chcesz zrobic";
+	std::cin >> wyb;
+	switch (wyb)
+	{
+		case 1:
+			film.addFilm();
+			choose();
+			break;
+		case 2:
+			remFilm.remFilm();
+			choose();
+			break;
+		case 3:
+			show.wybierz();
+			choose();
+			break;
+
+		case 0:
+			exit(0);
+			break;
+	}
+
+//	Show show;
+	//show.show();
+
 }
+
+
+
+
+/*
+AddFilm & Menu::getfilm()
+{
+	return film;
+}
+
+RemFilm & Menu::getremFilm()
+{
+	return remFilm;
+}*/

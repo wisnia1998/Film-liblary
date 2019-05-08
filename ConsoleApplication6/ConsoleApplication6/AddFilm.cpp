@@ -22,10 +22,8 @@ AddFilm::~AddFilm()
 
 void AddFilm::addFilm()
 {
-	MYSQL mysql;
 	string query;
-	//std::cin >> title;
-	//std::cin >> autor;
+	cin.ignore();
 	getline(cin, title);
 	getline(cin, autor);
 	std::cin >> data;
@@ -38,3 +36,14 @@ void AddFilm::addFilm()
 	mysql_query(&mysql, query.c_str());
 	
 }
+
+MYSQL & AddFilm::getSql()
+{
+	return mysql;
+}
+
+/*
+Menu & AddFilm::getMenu()
+{
+	return menu;
+}*/

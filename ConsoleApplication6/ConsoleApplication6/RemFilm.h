@@ -8,6 +8,7 @@ using namespace std;
 
 class RemFilm
 {
+	MYSQL mysql;
 public:
 	string removeFilm;
 
@@ -15,5 +16,7 @@ public:
 	~RemFilm();
 	   
 	void remFilm();
+
+	MYSQL &getSql();
 };
 

@@ -13,12 +13,9 @@ RemFilm::~RemFilm()
 
 void RemFilm::remFilm()
 {
-	MYSQL mysql;
 	string query;
-	//std::cin >> removeFilm;
-	cout << "usuwanie";
-	//std::cin >> removeFilm;
-	
+	cin.ignore();
+	cout << "\nusuwanie\n";
 	getline(cin, removeFilm);
 	std::cout << removeFilm;
 	query = "DELETE FROM filmy WHERE tytul = '" + removeFilm +  "'";
@@ -26,4 +23,9 @@ void RemFilm::remFilm()
 	mysql_real_connect(&mysql, "127.0.0.1", "root", "", "filmoteka", 0, NULL, 0);
 	mysql_select_db(&mysql, "filmoteka");
 	mysql_query(&mysql, query.c_str());
+}
+
+MYSQL & RemFilm::getSql()
+{
+	return mysql;
 }
