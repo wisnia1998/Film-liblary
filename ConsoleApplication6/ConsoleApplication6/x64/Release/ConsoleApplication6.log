@@ -1,0 +1,11 @@
+﻿  AddFilm.cpp
+  ConsoleApplication6.cpp
+p:\git\film-liblary\consoleapplication6\consoleapplication6\consoleapplication6.cpp(30): warning C4101: "idZapytania": lokalna zmienna, do której nie istnieje odwołanie
+p:\git\film-liblary\consoleapplication6\consoleapplication6\consoleapplication6.cpp(31): warning C4101: "wiersz": lokalna zmienna, do której nie istnieje odwołanie
+  Menu.cpp
+  Trwa generowanie kodu
+  0 of 157 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Zakończono generowanie kodu
+  ConsoleApplication6.vcxproj -> P:\GIT\Film-liblary\ConsoleApplication6\x64\Release\ConsoleApplication6.exe
