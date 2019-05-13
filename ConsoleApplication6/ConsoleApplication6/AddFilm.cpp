@@ -29,18 +29,19 @@ void AddFilm::addFilm()
 	std::cin >> data;
 	std::cin >> length;
 	std::cin >> mark;
-	query = "INSERT INTO filmy VALUES ('" + title + "'," + "'" + autor + "'," + "'" + data + "'," + "'" + length + "'," + "'" +  mark +"')";
+	query = "INSERT INTO filmy VALUES (NULL, '" + title + "'," + "'" + autor + "'," + "'" + data + "'," + "'" + length + "'," + "'" +  mark +"')";
 	mysql_init(&mysql);
+	std::cout << query;
 	mysql_real_connect(&mysql, "127.0.0.1", "root", "", "filmoteka", 0, NULL, 0);
 	mysql_select_db(&mysql, "filmoteka");
 	mysql_query(&mysql, query.c_str());
 	
 }
 
-MYSQL & AddFilm::getSql()
+/*MYSQL & AddFilm::getSql()
 {
 	return mysql;
-}
+}*/
 
 /*
 Menu & AddFilm::getMenu()

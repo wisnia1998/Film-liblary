@@ -16,9 +16,10 @@ void Menu::choose()
 	AddFilm film;
 	RemFilm remFilm;
 	Show show;
+	Edit edit;
 
 	int wyb;
-	std::cout << "co chcesz zrobic";
+	std::cout << "co chcesz zrobic\n1.dodaj\n2.usun\n3.wyswietl\n4.edytuj";
 	std::cin >> wyb;
 	switch (wyb)
 	{
@@ -32,6 +33,10 @@ void Menu::choose()
 			break;
 		case 3:
 			show.wybierz();
+			choose();
+			break;
+		case 4:
+			edit.edit();
 			choose();
 			break;
 

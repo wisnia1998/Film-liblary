@@ -9,7 +9,6 @@ using namespace std;
 class AddFilm
 {
 	MYSQL mysql;
-	//Menu menu;
 public:
 	string title;
 	string autor;
@@ -23,7 +22,7 @@ public:
 
 	void addFilm();
 
-	MYSQL &getSql();
+	//MYSQL &getSql();
 	//Menu &getMenu();
 };
 
