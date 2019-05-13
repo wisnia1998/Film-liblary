@@ -1,6 +1,8 @@
 ﻿// ConsoleApplication6.cpp : Ten plik zawiera funkcję „main”. W nim rozpoczyna się i kończy wykonywanie programu.
 //
 #include "pch.h"
+#include "AddFilm.h"
+#include "Menu.h"
 
 // MySqlTest.cpp : Defines the entry point for the console application.
 //
@@ -8,11 +10,14 @@
 #include <mysql.h>
 #include <iostream>
 
+
 using namespace std;
 
 
 int main(int argc, const char * argv[])
 {
+	Menu menu;
+	/*AddFilm a("ala","aKa","1","2","3");*/
 	MYSQL mysql;
 
 	mysql_init(&mysql); // incjalizacja
@@ -24,10 +29,11 @@ int main(int argc, const char * argv[])
 
 	MYSQL_RES *idZapytania;
 	MYSQL_ROW  wiersz;
-	mysql_select_db(&mysql, "filmoteka");
-	mysql_query(&mysql, "INSERT INTO filmy VALUES ('Sami swoi', 'nieznany', 12,12,12)");
+	//mysql_select_db(&mysql, "filmoteka");
+	//mysql_query(&mysql, "INSERT INTO filmy VALUES ('Sami swoi', 'nieznany', 12,12,12)");
+	menu.choose();
 
-	mysql_query(&mysql, "SELECT * FROM filmy");
+	/*mysql_query(&mysql, "SELECT * FROM filmy");
 	MYSQL_RES *result = mysql_store_result(&mysql);
 	//*idZapytania = mysql_store_result(&mysql);
 
@@ -37,7 +43,7 @@ int main(int argc, const char * argv[])
 			for (int i = 0; i < mysql_num_fields(result); i++)
 				cout << wiersz[i] << " ";
 			cout << endl;
-		}
+		}*/
 
 
 	mysql_close(&mysql); // zamknij połączenie

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 07 Maj 2019, 18:03
+-- Czas generowania: 08 Maj 2019, 23:09
 -- Wersja serwera: 10.1.38-MariaDB
 -- Wersja PHP: 7.3.4
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `filmy` (
+  `ID` int(11) NOT NULL,
   `Tytul` text COLLATE utf8_polish_ci NOT NULL,
   `Autor` text COLLATE utf8_polish_ci NOT NULL,
   `Data` int(11) NOT NULL,
@@ -40,8 +41,33 @@ CREATE TABLE `filmy` (
 -- Zrzut danych tabeli `filmy`
 --
 
-INSERT INTO `filmy` (`Tytul`, `Autor`, `Data`, `Czas`, `Ocena`) VALUES
-('Sami swoi', '', 1956, 86, 8);
+INSERT INTO `filmy` (`ID`, `Tytul`, `Autor`, `Data`, `Czas`, `Ocena`) VALUES
+(1, 'Jak rozpentalem druga wojne', '', 1, 2, 3),
+(2, 'Titanic', '', 1912, 210, 6),
+(3, 'Kapitan Ameryka', 'MArvel ', 2015, 180, 7),
+(4, 'Iron Man', 'Marvel', 2011, 130, 8),
+(5, 'ala', 'ala', 2, 2, 1),
+(6, 'Pan Tadeusz', 'Adam Mickiewicz', 1920, 60, 9);
+
+--
+-- Indeksy dla zrzutów tabel
+--
+
+--
+-- Indeksy dla tabeli `filmy`
+--
+ALTER TABLE `filmy`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT dla tabeli `filmy`
+--
+ALTER TABLE `filmy`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
