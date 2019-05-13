@@ -1,7 +1,10 @@
-﻿  Edit.cpp
+﻿  ConsoleApplication6.cpp
+  Show.cpp
+p:\git\film-liblary\consoleapplication6\consoleapplication6\show.cpp(25): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+p:\git\film-liblary\consoleapplication6\consoleapplication6\show.cpp(76): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
   Trwa generowanie kodu
-  1 of 167 functions ( 0.6%) were compiled, the rest were copied from previous compilation.
+  5 of 167 functions ( 3.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Zakończono generowanie kodu
   ConsoleApplication6.vcxproj -> P:\GIT\Film-liblary\ConsoleApplication6\x64\Release\ConsoleApplication6.exe

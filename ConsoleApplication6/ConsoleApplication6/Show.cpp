@@ -23,7 +23,7 @@ void Show::show()
 	while ((wiersz = mysql_fetch_row(result)) != NULL)
 	{
 		for (int i = 0; i < mysql_num_fields(result); i++)
-			std::cout << wiersz[i] << " ";
+			std::cout << wiersz[i] << "|	";
 		std::cout << std::endl;
 	}
 }
@@ -33,7 +33,6 @@ void Show::orderBy(int sort, int ros)
 	std::string query;
 	std::string by;
 	std::string kierunek;
-	//std::cin >> by;
 	switch (sort)
 	{
 	case 1:
@@ -64,7 +63,6 @@ void Show::orderBy(int sort, int ros)
 	}
 
 	query = "SELECT * FROM filmy ORDER BY " + by + " " + kierunek;
-//	std::cout << query;
 	mysql_init(&mysql);
 	mysql_real_connect(&mysql, "127.0.0.1", "root", "", "filmoteka", 0, NULL, 0);
 	mysql_select_db(&mysql, "filmoteka");

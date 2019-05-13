@@ -37,14 +37,3 @@ void AddFilm::addFilm()
 	mysql_query(&mysql, query.c_str());
 	
 }
-
-/*MYSQL & AddFilm::getSql()
-{
-	return mysql;
-}*/
-
-/*
-Menu & AddFilm::getMenu()
-{
-	return menu;
-}*/

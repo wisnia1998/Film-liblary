@@ -42,7 +42,6 @@ void Edit::edit()
 	}
 	std::string query;
 	query = "UPDATE filmy SET " + kolumna + "= '" + polecenie + "'" + " WHERE id = " + id;
-	//query = "INSERT INTO filmy VALUES (NULL, '" + title + "'," + "'" + autor + "'," + "'" + data + "'," + "'" + length + "'," + "'" + mark + "')";
 	mysql_init(&mysql);
 	std::cout << query;
 	mysql_real_connect(&mysql, "127.0.0.1", "root", "", "filmoteka", 0, NULL, 0);

@@ -7,15 +7,12 @@
 
 class Menu : public RemFilm , public Show , public AddFilm , public Edit
 {
-	//AddFilm film;
-	//RemFilm remFilm;
+
 public:
 	Menu();
 	~Menu();
 
 	void choose();
 
-	//AddFilm &getfilm();
-	//RemFilm &getremFilm();
 };
 

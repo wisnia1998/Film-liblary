@@ -44,22 +44,4 @@ void Menu::choose()
 			exit(0);
 			break;
 	}
-
-//	Show show;
-	//show.show();
-
 }
-
-
-
-
-/*
-AddFilm & Menu::getfilm()
-{
-	return film;
-}
-
-RemFilm & Menu::getremFilm()
-{
-	return remFilm;
-}*/
