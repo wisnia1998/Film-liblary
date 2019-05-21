@@ -22,6 +22,7 @@ AddFilm::~AddFilm()
 
 void AddFilm::addFilm()
 {
+	cout << "Dodaj film podajac kolejno Tytul, autora, date powstania, czas trwania, dlugosc i ocene. Kazda operacje zatwierdz enterem.";
 	string query;
 	cin.ignore();
 	getline(cin, title);
@@ -33,7 +34,7 @@ void AddFilm::addFilm()
 	mysql_init(&mysql);
 	std::cout << query;
 	mysql_real_connect(&mysql, "127.0.0.1", "root", "", "filmoteka", 0, NULL, 0);//³¹czenie z baz¹
-	mysql_select_db(&mysql, "filmoteka");
+	//mysql_select_db(&mysql, "filmoteka");
 	mysql_query(&mysql, query.c_str());
 	
 }

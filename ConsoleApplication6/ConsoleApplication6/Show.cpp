@@ -13,26 +13,29 @@ Show::~Show()
 
 void Show::show()
 {
+	system("cls");
 	mysql_init(&mysql);
 	mysql_real_connect(&mysql, "127.0.0.1", "root", "", "filmoteka", 0, NULL, 0);
-	mysql_select_db(&mysql, "filmoteka");
+	//mysql_select_db(&mysql, "filmoteka");
 	mysql_query(&mysql, "SELECT * FROM filmy");
-	MYSQL_ROW  wiersz;
+	MYSQL_ROW  row;
 	MYSQL_RES *result = mysql_store_result(&mysql);
 
-	while ((wiersz = mysql_fetch_row(result)) != NULL)
+	while ((row = mysql_fetch_row(result)) != NULL)
 	{
 		for (int i = 0; i < mysql_num_fields(result); i++)
-			std::cout << wiersz[i] << "|	";
+			std::cout << row[i] << "|	";
 		std::cout << std::endl;
 	}
+	printf("\n\nNacisnij Enter zeby wrocic do menu wyboru\n");
+	std::cin.ignore();
 }
 
 void Show::orderBy(int sort, int ros)
 {
 	std::string query;
 	std::string by;
-	std::string kierunek;
+	std::string direction;
 	switch (sort)
 	{
 	case 1:
@@ -55,34 +58,36 @@ void Show::orderBy(int sort, int ros)
 	switch (ros)
 	{
 	case 1:
-		kierunek = "asc";
+		direction = "asc";
 		break;
 	case 2:
-		kierunek = "desc";
+		direction = "desc";
 		break;
 	}
 
-	query = "SELECT * FROM filmy ORDER BY " + by + " " + kierunek;
+	query = "SELECT * FROM filmy ORDER BY " + by + " " + direction;
 	mysql_init(&mysql);
 	mysql_real_connect(&mysql, "127.0.0.1", "root", "", "filmoteka", 0, NULL, 0);
-	mysql_select_db(&mysql, "filmoteka");
+	//mysql_select_db(&mysql, "filmoteka");
 	mysql_query(&mysql, query.c_str());
-	MYSQL_ROW  wiersz;
+	MYSQL_ROW  row;
 	MYSQL_RES *result = mysql_store_result(&mysql);
-
-	while ((wiersz = mysql_fetch_row(result)) != NULL)
+	system("cls");
+	while ((row = mysql_fetch_row(result)) != NULL)
 	{
 		for (int i = 0; i < mysql_num_fields(result); i++)
-			std::cout << wiersz[i] << " ";
+			std::cout << row[i] << "	|	";
 		std::cout << std::endl;
 	}
-
+	printf("\n\nNacisnij Enter zeby wrocic do menu wyboru\n");
+	std::cin.ignore();
 }
 
 void Show::wybierz()
 {
+	system("cls");
 	int wyb;
-	std::cout << "co chcesz";
+	std::cout << "1.Wyswietl wszystkie filmy.\n2.Wyswietl sortujac po:";
 	std::cin >> wyb;
 	switch (wyb)
 	{
@@ -91,9 +96,9 @@ void Show::wybierz()
 		break;
 	case 2:
 		int sort,ros;
-		std::cout << "sotruj po: \n 1.tytul \n 2.autor \n 3. data \n 4. czas \n 5. ocena";
+		std::cout << "sotruj po: \n 1.tytul \n 2.autor \n 3. data \n 4. czas \n 5. ocena\n";
 		std::cin >> sort;
-		std::cout << "rosnaco\nmalejaco";
+		std::cout << "1.Rosnaco\n2.Malejaco\n";
 		std::cin >> ros;
 		orderBy(sort, ros);
 		break;

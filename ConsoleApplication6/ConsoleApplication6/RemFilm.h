@@ -16,7 +16,5 @@ public:
 	~RemFilm();
 	   
 	void remFilm();
-
-	MYSQL &getSql();
 };
 

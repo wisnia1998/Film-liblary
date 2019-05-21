@@ -18,10 +18,13 @@ void Menu::choose()
 	Show show;
 	Edit edit;
 
-	int wyb;
-	std::cout << "co chcesz zrobic\n1.dodaj\n2.usun\n3.wyswietl\n4.edytuj";
-	std::cin >> wyb;
-	switch (wyb)
+	int tmp;
+
+//	system("cls");
+
+	std::cout << "co chcesz zrobic\n1.Dodaj\n2.Usun\n3.Wyswietl\n4.Edytuj\n";
+	std::cin >> tmp;
+	switch (tmp)
 	{
 		case 1:
 			film.addFilm();

@@ -14,11 +14,10 @@ Edit::~Edit()
 void Edit::edit()
 {
 	show.show();
-	int tmp =0;
+	int tmp = 0;
 	std::string polecenie;
 	std::string id;
 	std::string kolumna;
-	//std::cin >> kolumna;
 	std::cin >> tmp;
 	std::cin >> polecenie;
 	std::cin >> id;
@@ -45,6 +44,6 @@ void Edit::edit()
 	mysql_init(&mysql);
 	std::cout << query;
 	mysql_real_connect(&mysql, "127.0.0.1", "root", "", "filmoteka", 0, NULL, 0);
-	mysql_select_db(&mysql, "filmoteka");
+	//mysql_select_db(&mysql, "filmoteka");
 	mysql_query(&mysql, query.c_str());
 }
