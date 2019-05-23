@@ -22,7 +22,7 @@ AddFilm::~AddFilm()
 
 void AddFilm::addFilm()
 {
-	cout << "Dodaj film podajac kolejno Tytul, autora, date powstania, czas trwania, dlugosc i ocene. Kazda operacje zatwierdz enterem.";
+	texts.title();
 	string query;
 	cin.ignore();
 	getline(cin, title);

@@ -16,19 +16,34 @@ void Show::show()
 	system("cls");
 	mysql_init(&mysql);
 	mysql_real_connect(&mysql, "127.0.0.1", "root", "", "filmoteka", 0, NULL, 0);
-	//mysql_select_db(&mysql, "filmoteka");
 	mysql_query(&mysql, "SELECT * FROM filmy");
 	MYSQL_ROW  row;
 	MYSQL_RES *result = mysql_store_result(&mysql);
 
+	unsigned long *lengths;
+	unsigned int num_fields;
+
+
 	while ((row = mysql_fetch_row(result)) != NULL)
 	{
+		lengths = mysql_fetch_lengths(result);
 		for (int i = 0; i < mysql_num_fields(result); i++)
-			std::cout << row[i] << "|	";
+		{
+			std::cout << row[i];
+			if (!(i - 1) % 6)
+			{
+				int k = 27 - lengths[i];
+				adjust(k);
+			}
+			if (!(i - 2) % 6)
+			{
+				int l = 15 - lengths[i];
+				adjust(l);
+			}
+				std::cout << "| ";
+		}
 		std::cout << std::endl;
 	}
-	printf("\n\nNacisnij Enter zeby wrocic do menu wyboru\n");
-	std::cin.ignore();
 }
 
 void Show::orderBy(int sort, int ros)
@@ -68,26 +83,41 @@ void Show::orderBy(int sort, int ros)
 	query = "SELECT * FROM filmy ORDER BY " + by + " " + direction;
 	mysql_init(&mysql);
 	mysql_real_connect(&mysql, "127.0.0.1", "root", "", "filmoteka", 0, NULL, 0);
-	//mysql_select_db(&mysql, "filmoteka");
 	mysql_query(&mysql, query.c_str());
 	MYSQL_ROW  row;
 	MYSQL_RES *result = mysql_store_result(&mysql);
+
+	unsigned long *lengths;
+	unsigned int num_fields;
 	system("cls");
 	while ((row = mysql_fetch_row(result)) != NULL)
 	{
+		lengths = mysql_fetch_lengths(result);
 		for (int i = 0; i < mysql_num_fields(result); i++)
-			std::cout << row[i] << "	|	";
+		{
+			std::cout << row[i];
+			if (!(i - 1) % 6)
+			{
+				int k = 27 - lengths[i];
+				adjust(k);
+			}
+			if (!(i - 2) % 6)
+			{
+				int l = 15 - lengths[i];
+				adjust(l);
+			}
+			std::cout << "| ";
+		}
 		std::cout << std::endl;
 	}
-	printf("\n\nNacisnij Enter zeby wrocic do menu wyboru\n");
-	std::cin.ignore();
+	texts.goBack();
 }
 
 void Show::wybierz()
 {
 	system("cls");
 	int wyb;
-	std::cout << "1.Wyswietl wszystkie filmy.\n2.Wyswietl sortujac po:";
+	texts.view();
 	std::cin >> wyb;
 	switch (wyb)
 	{
@@ -96,9 +126,9 @@ void Show::wybierz()
 		break;
 	case 2:
 		int sort,ros;
-		std::cout << "sotruj po: \n 1.tytul \n 2.autor \n 3. data \n 4. czas \n 5. ocena\n";
+		texts.viewBy();
 		std::cin >> sort;
-		std::cout << "1.Rosnaco\n2.Malejaco\n";
+		texts.viewOrder();
 		std::cin >> ros;
 		orderBy(sort, ros);
 		break;
@@ -106,3 +136,8 @@ void Show::wybierz()
 	}
 }
 
+void Show::adjust(int a)
+{
+	for (int j = 0; j < a; j++)
+		std::cout << " ";
+}

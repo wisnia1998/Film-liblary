@@ -4,8 +4,10 @@
 #include <iostream>
 #include <conio.h>
 #include "Show.h"
+#include "Text.h"
 class Edit
 {
+	Text texts;
 	Show show;
 	MYSQL mysql;
 public:

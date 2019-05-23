@@ -3,11 +3,13 @@
 #include <mysql.h>
 #include <iostream>
 #include <conio.h>
+#include "Text.h"
 
 using namespace std;
 
 class AddFilm
 {
+	Text texts;
 	MYSQL mysql;
 public:
 	string title;

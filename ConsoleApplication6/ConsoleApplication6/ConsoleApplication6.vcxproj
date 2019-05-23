@@ -163,6 +163,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="RemFilm.h" />
     <ClInclude Include="Show.h" />
+    <ClInclude Include="Text.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AddFilm.cpp" />
@@ -177,6 +178,7 @@
     </ClCompile>
     <ClCompile Include="RemFilm.cpp" />
     <ClCompile Include="Show.cpp" />
+    <ClCompile Include="Text.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -15,15 +15,14 @@ void RemFilm::remFilm()
 {
 	string query;
 	cin.ignore();
-	cout << "\nusuwanie\n";
+	texts.remove();
 	getline(cin, removeFilm);
 	
 
 	query = "DELETE FROM filmy WHERE tytul = '" + removeFilm +  "'";
 	mysql_init(&mysql);
 	mysql_real_connect(&mysql, "127.0.0.1", "root", "", "filmoteka", 0, NULL, 0);
-	//mysql_select_db(&mysql, "filmoteka");
 	mysql_query(&mysql, query.c_str());
 
-	std::cout << "Usunieto film pt.: " << removeFilm;
+	texts.remTitle(removeFilm);
 }

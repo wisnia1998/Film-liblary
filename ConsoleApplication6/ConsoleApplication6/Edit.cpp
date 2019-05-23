@@ -15,35 +15,45 @@ void Edit::edit()
 {
 	show.show();
 	int tmp = 0;
-	std::string polecenie;
+	std::string newValue;
 	std::string id;
-	std::string kolumna;
+	std::string atribiut;
+	std::cin.ignore();
+	texts.editElement();
 	std::cin >> tmp;
-	std::cin >> polecenie;
-	std::cin >> id;
+
 	switch (tmp)
 	{
 	case 1:
-		kolumna = "Tytul";
+		atribiut = "Tytul";
 		break;
 	case 2:
-		kolumna = "autor";
+		atribiut = "autor";
 		break;
 	case 3:
-		kolumna = "data";
+		atribiut = "data";
 		break;
 	case 4:
-		kolumna = "czas";
+		atribiut = "czas";
 		break;
 	case 5:
-		kolumna = "ocena";
+		atribiut = "ocena";
 		break;
 	}
+
+	system("cls");
+	show.show();
+	texts.newElement(atribiut);
+	std::cin >> newValue;
+	texts.idOfElement();
+	std::cin >> id;
 	std::string query;
-	query = "UPDATE filmy SET " + kolumna + "= '" + polecenie + "'" + " WHERE id = " + id;
+	query = "UPDATE filmy SET " + atribiut + "= '" + newValue + "'" + " WHERE id = " + id;
 	mysql_init(&mysql);
 	std::cout << query;
 	mysql_real_connect(&mysql, "127.0.0.1", "root", "", "filmoteka", 0, NULL, 0);
-	//mysql_select_db(&mysql, "filmoteka");
 	mysql_query(&mysql, query.c_str());
+	system("cls");
+	show.show();
+	texts.goBack();
 }

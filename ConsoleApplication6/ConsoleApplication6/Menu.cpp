@@ -22,7 +22,7 @@ void Menu::choose()
 
 //	system("cls");
 
-	std::cout << "co chcesz zrobic\n1.Dodaj\n2.Usun\n3.Wyswietl\n4.Edytuj\n";
+	texts.whatToDo();
 	std::cin >> tmp;
 	switch (tmp)
 	{
@@ -36,6 +36,7 @@ void Menu::choose()
 			break;
 		case 3:
 			show.wybierz();
+			texts.goBack();
 			choose();
 			break;
 		case 4:
